@@ -51,6 +51,19 @@ async function run() {
             res.send('booking processed');
         })
 
+        //addTours post api
+        app.post('/addTours', async (req, res) => {
+            console.log(req.body);
+            const result = await tourCollection.insertOne(req.body);
+            res.send(result.acknowledged);
+        })
+        //add myBooking post api
+        app.post('/myBooking', async (req, res) => {
+            console.log(req.body);
+            const result = await bookingCollection.insertOne(req.body);
+            res.send(result.acknowledged);
+        })
+
 
 
     }
